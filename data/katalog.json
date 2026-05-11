@@ -1,5 +1,11 @@
 [
   {
+    "nama": "Thinker Bell",
+    "gambar": "assets/Thinker Bell.png",
+    "link": "https://id.sudahnikah.com/d/Thinker-Bell?kpd=Tamu+Undangan",
+    "kategori": "ulangtahun"
+  },
+  {
     "nama": "New Sky",
     "gambar": "assets/New Sky.png",
     "link": "https://id.sudahnikah.com/d/New-Sky-V?kpd=Tamu+Undangan",
@@ -102,7 +108,7 @@
     "kategori": "wedding"
   },
   {
-    "nama": " Plant Zombie",
+    "nama": "Plant Zombie",
     "gambar": "assets/Plant Zombie.png",
     "link": "https://id.sudahnikah.com/d/Retro-Romance-?kpd=Tamu+Undangan",
     "kategori": "ulangtahun"
