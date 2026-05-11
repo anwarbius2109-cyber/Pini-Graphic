@@ -35,9 +35,23 @@ Saya mau pesan undangan
 
     const linkWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
 
-    katalog.innerHTML += `
-      <div class="bg-white rounded-2xl shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 overflow-hidden text-sm group border border-white/40 backdrop-blur">
+   katalog.innerHTML += `
 
+  <div class="relative">
+
+    ${isPopuler ? `
+      <div class="absolute top-3 right-3 z-20
+        bg-gradient-to-r from-orange-500 to-red-500
+        text-white text-[10px] sm:text-xs
+        px-3 py-1 rounded-full
+        animate-pulse shadow-lg">
+
+        🔥 POPULER
+
+      </div>
+    ` : ""}
+
+    <div class="bg-white rounded-2xl shadow-sm
         <div class="relative group">
           <img src="${item.gambar}" class="w-full aspect-[3/4] sm:aspect-[4/5] object-cover transition duration-500 group-hover:scale-105">
 
