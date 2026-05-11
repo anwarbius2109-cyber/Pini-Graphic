@@ -190,38 +190,4 @@ fetch("data/porto.json")
       `;
     });
   });
-/* =========================
-   🔥 TEMA POPULER
-========================= */
 
-fetch("/data/populer.json")
-  .then(res => res.json())
-  .then(data => {
-
-    const populer = document.getElementById("temaPopuler");
-
-    if(!populer) return;
-
-    populer.innerHTML = "";
-
-    data.forEach(item => {
-
-      const pesan = `Halo kak 👋
-Saya mau pesan undangan
-
-✨ Tema: ${item.nama}
-🔗 Preview: ${item.link}`;
-
-      const linkWA = `https://wa.me/6281261233730?text=${encodeURIComponent(pesan)}`;
-
-      populer.innerHTML += `
-
-      <div class="relative">
-
-        <div class="absolute top-3 right-3 z-20
-          bg-gradient-to-r from-orange-500 to-red-500
-          text-white text-[10px] sm:text-xs
-          px-3 py-1 rounded-full
-          animate-pulse shadow-lg">
-
-  });
