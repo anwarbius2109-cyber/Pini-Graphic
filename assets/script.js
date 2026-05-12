@@ -80,8 +80,8 @@ Saya mau pesan undangan
 
   <div class="relative">
 
-    <div class="relative bg-white/70 backdrop-blur-xl rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 overflow-hidden text-sm group border border-white/40">
- <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-pink-100/40 via-transparent to-yellow-100/40 pointer-events-none"></div>     
+    <div class="bg-white rounded-2xl shadow-sm hover:shadow-2xl transition duration-300 hover:-translate-y-2 overflow-hidden text-sm group border border-white/40 backdrop-blur">
+
       <div class="relative group">
 
         <img src="${item.gambar}"
