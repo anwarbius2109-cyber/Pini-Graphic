@@ -461,39 +461,79 @@
 <!-- FILTER -->
 <div class="max-w-6xl mx-auto px-4 mb-8 flex gap-3 flex-wrap justify-center">
 
-  <button onclick="filterKategori('all')" class="btn-filter active">
+  <button onclick="filterKategori('all')" data-kategori="all" class="btn-filter active">
     Semua
   </button>
 
-  <button onclick="filterKategori('tanpafoto')" class="btn-filter">
+  <button onclick="filterKategori('tanpafoto')" data-kategori="tanpafoto" class="btn-filter">
     Tanpa Foto
   </button>
 
-  <button onclick="filterKategori('kartun')" class="btn-filter">
+  <button onclick="filterKategori('kartun')" data-kategori="kartun" class="btn-filter">
     Kartun
   </button>
 
-  <button onclick="filterKategori('wedding')" class="btn-filter">
+  <button onclick="filterKategori('wedding')" data-kategori="wedding" class="btn-filter">
     Wedding
   </button>
 
-  <button onclick="filterKategori('khitan')" class="btn-filter">
+  <button onclick="filterKategori('khitan')" data-kategori="khitan" class="btn-filter">
     Khitan
   </button>
 
-  <button onclick="filterKategori('aqiqah')" class="btn-filter">
+  <button onclick="filterKategori('aqiqah')" data-kategori="aqiqah" class="btn-filter">
     Aqiqah
   </button>
 
-  <button onclick="filterKategori('ulangtahun')" class="btn-filter">
+  <button onclick="filterKategori('ulangtahun')" data-kategori="ulangtahun" class="btn-filter">
     Ulang Tahun
   </button>
 
-  <button onclick="filterKategori('party&dinner')" class="btn-filter">
+  <button onclick="filterKategori('party&dinner')" data-kategori="party&dinner" class="btn-filter">
     Party & Dinner
   </button>
 
 </div>
+
+<script>
+  // otomatis ubah link hash saat klik kategori
+  const kategoriButtons = document.querySelectorAll('[data-kategori]');
+
+  kategoriButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const kategori = btn.getAttribute('data-kategori');
+
+      if (kategori === 'all') {
+        window.location.hash = 'katalog';
+      } else {
+        window.location.hash = `katalog/${kategori}`;
+      }
+    });
+  });
+
+  // buka kategori otomatis dari URL
+  window.addEventListener('load', () => {
+    const hash = window.location.hash;
+
+    if (hash.includes('katalog/')) {
+      const kategori = hash.split('katalog/')[1];
+
+      filterKategori(kategori);
+
+      // pindah active button
+      document.querySelectorAll('.btn-filter').forEach(btn => {
+        btn.classList.remove('active');
+
+        if (btn.getAttribute('data-kategori') === kategori) {
+          btn.classList.add('active');
+        }
+      });
+
+    } else {
+      filterKategori('all');
+    }
+  });
+</script>
 
 <!-- KATALOG -->
 <section class="max-w-6xl mx-auto px-4 pb-10">
@@ -1021,6 +1061,49 @@ AOS.init({
   duration: 800,
   once: true
 });
+</script>
+  <script>
+  // Ambil semua tombol kategori
+  const kategoriButtons = document.querySelectorAll('[data-kategori]');
+
+  kategoriButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const kategori = btn.getAttribute('data-kategori');
+
+      // Ubah hash URL
+      window.location.hash = `katalog/${kategori}`;
+
+      // Optional:
+      // tampilkan konten kategori
+      tampilkanKategori(kategori);
+    });
+  });
+
+  // Function tampil kategori
+  function tampilkanKategori(kategori) {
+    const semuaKategori = document.querySelectorAll('.kategori-item');
+
+    semuaKategori.forEach(item => {
+      item.style.display = 'none';
+    });
+
+    const aktif = document.querySelector(`.kategori-${kategori}`);
+
+    if (aktif) {
+      aktif.style.display = 'block';
+    }
+  }
+
+  // Saat halaman dibuka
+  window.addEventListener('load', () => {
+    const hash = window.location.hash;
+
+    if (hash.includes('katalog/')) {
+      const kategori = hash.split('katalog/')[1];
+
+      tampilkanKategori(kategori);
+    }
+  });
 </script>
 </body>
 </html>
